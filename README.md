@@ -7,7 +7,7 @@ Execute this command in your wsl 2 command line:
 docker run --rm --name pg-docker -e POSTGRES_PASSWORD=YOUR_PASSWORD -d -p 5432:5432 \
 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data postgres
 
-docker exec -it <PSQL-Container-ID> bash
+docker exec -it (PSQL-Container-ID) bash
 
 ### Login to PostGres
    
