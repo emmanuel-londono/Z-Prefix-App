@@ -20,9 +20,9 @@ psql -U postgres
 -execute "npm start" command
 
 ## Server Setup
--navigate to server in terminal
--execute "npm install" command 
--execute "npm start" command
+- navigate to server in terminal
+- execute "npm install" command 
+- execute "npm start" command
 
 
 
