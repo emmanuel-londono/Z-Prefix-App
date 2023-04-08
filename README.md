@@ -41,6 +41,7 @@ There is an admin profile built into the mocked back-end data. To log in as an i
       PASSWORD:
                123
 
+(It is also possible to sign-up for new login credentials) 
 
 ## Removal
 
