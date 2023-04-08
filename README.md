@@ -7,6 +7,7 @@
 
 This is my submission for the SDI 15 Cohort Z-Prefix-App.
 
+
 ## Table of Contents
 
 - [Installation]
@@ -24,7 +25,7 @@ This is my submission for the SDI 15 Cohort Z-Prefix-App.
 
 3. Open the cloned repo in vscode.
 
-4. In the vscode terminal, perform the following command:   docker-compose up
+4. In the vscode terminal, perform the following command, this should install all the dependencies, and perform all boot-up processes:   docker-compose up
 
 
 ## Usage
