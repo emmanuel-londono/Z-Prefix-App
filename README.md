@@ -27,12 +27,15 @@ This is my submission for the SDI 15 Cohort Z-Prefix-App.
 
 3. Open the cloned repo in vscode.
 
-4. In the vscode terminal, perform the following command:   **docker-compose up**^This should install all the dependencies, and perform all boot-up processes^
+4. In the vscode terminal, perform the following command:   **docker-compose up**
+
+	<sub> This should install all the dependencies, and perform all boot-up processes</sub>
 
 
 ## Usage
 
-There is an admin profile built into the mocked back-end data. To log in as an inventory manager, use the following credentials in the login screen:^It is also possible to sign-up for new login credentials.^
+There is an admin profile built into the mocked back-end data. To log in as an inventory manager, use the following credentials in the login screen: 
+<sub>It is also possible to sign-up for new login credentials. </sub>
 
 
       USERNAME:
