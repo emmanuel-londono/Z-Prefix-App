@@ -63,6 +63,7 @@ Run the following command to remove the docker image and container built for thi
 ![Z-Prefix App Users](https://user-images.githubusercontent.com/123216952/230739662-bd4ed1ca-6926-4f4c-a110-1dcaed3aef8c.png)
 ![Z-Prefix App Account](https://user-images.githubusercontent.com/123216952/230739666-d0ad3a28-66b3-45ed-9e12-9a401fbdf490.png)
 
-
+### Entity Relationship Diagram
+![ERD](https://user-images.githubusercontent.com/123216952/230739845-8ca047a0-5057-4c63-a1a4-a9f5dd31685c.png)
 
 
