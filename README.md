@@ -63,7 +63,7 @@ This is my submission for the SDI 15 Cohort Z-Prefix-App.
 	
 6. Wait for the front-end to finish loading, this should be the last container to load before opening the app. 
 
-7. Open an instance of Google Chrome or Chromium browser.
+7. Open an instance of Google Chrome or a Chromium browser.
 
 8. Type and search ```http://localhost:3000/``` into the address at the top of the page. 
 
