@@ -18,7 +18,7 @@ This is my submission for the SDI 15 Cohort Z-Prefix-App.
 #### Technologies Used
 ##### Front-end 
 + Framework
-	+ React
+	+ React 
 + Routing
 	+ React Router
 + Styling
@@ -41,14 +41,14 @@ This is my submission for the SDI 15 Cohort Z-Prefix-App.
 	+ express-session
 
 ##### Containerization
-+ Docker
++ Docker Desktop  20.10.24
 
 
 ## Installation
 
 ### Quick Start with Docker
 
-<sub> This installation guide assumes the user has the latest version of Docker desktop installed locally. Installation guid can be found [here](https://docs.docker.com/engine/install/). </sub>
+<sub> This installation guide assumes the user has the latest version of Docker desktop installed locally. Installation guide can be found [here](https://docs.docker.com/engine/install/). </sub>
 
 
 1. Clone this repository into your local machine with:       **```git clone git@github.com:emmanuel-londono/Z-Prefix-App.git```**
