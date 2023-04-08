@@ -21,7 +21,7 @@ app.use(session({
 }))
 
 
-
+///
 
 //#region Express Routes
 
@@ -262,8 +262,8 @@ const patchAccount = async (req, res) => {
             .then((data) => {
                 return knex("user")
                     .where({ first_name: new_first_name, last_name: new_last_name, username: new_username, password: new_password })
-            }).then (data => { return res.status(200).json(data)})
-    }else{
+            }).then(data => { return res.status(200).json(data) })
+    } else {
         return res.status(404).send('Wrong Input Detected. Make sure to enter a value into each text form!')
     }
 
@@ -275,10 +275,16 @@ const patchAccount = async (req, res) => {
 const deleteAccount = async (req, res) => {
     if (req.body.id) {
         let { id } = req.body;
-        knex("user")
+        return knex("user")
             .where("id", id)
             .del()
             .then(() => {
+                //Delete all items associated with the deleted user_id due to foreign key restraint
+                return knex("item")
+                    .where("user_id", id)
+                    .del()
+
+            }).then(() => {
                 console.log(`Deleted user with id = ${id}`);
                 return res.status(200).send('User Deleted!');
             })

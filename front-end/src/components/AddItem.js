@@ -103,14 +103,14 @@ export const AddItem = () => {
                         <Form>
                             <Form.Group className="mb-3">
                                 <Form.Label>Quantity</Form.Label>
-                                <Form.Control id="quantity_form" onChange={handleChange} type="text" placeholder="Enter Integer Quantity" />
+                                <Form.Control id="quantity_form" onChange={handleChange} type="text" placeholder="Enter Quantity. Must be an integer." />
                             </Form.Group>
                         </Form>
                     </Col><Col sm={4} >
                         <Form>
                             <Form.Group className="mb-3">
                                 <Form.Label>User Id</Form.Label>
-                                <Form.Control id="user_id_form" onChange={handleChange} type="text" placeholder="Enter User Id" />
+                                <Form.Control id="user_id_form" onChange={handleChange} type="text" placeholder="Enter User Id. Must be an integer" />
                             </Form.Group>
                         </Form>
                     </Col>
