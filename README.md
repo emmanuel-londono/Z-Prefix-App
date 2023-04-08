@@ -29,7 +29,7 @@ This is my submission for the SDI 15 Cohort Z-Prefix-App.
 
 ## Usage
 
-There is an admin profile built into the mocked data. To log in as an inventory manager, use the following credentials in the login screen:
+There is an admin profile built into the mocked back-end data. To log in as an inventory manager, use the following credentials in the login screen:
 
       USERNAME:
                admin
