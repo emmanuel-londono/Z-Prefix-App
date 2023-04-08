@@ -7,6 +7,17 @@
 
 This is my submission for the SDI 15 Cohort Z-Prefix-App.
 
+#### Front-end Tech Used
++ React
++ React-Bootstrap
++ React-MUI
+
+#### Back-end Tech Used
++ Express
++ Knex
++ PostGres
+
+
 
 ## Table of Contents
 
