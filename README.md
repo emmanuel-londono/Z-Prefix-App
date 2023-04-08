@@ -13,6 +13,7 @@ This is my submission for the SDI 15 Cohort Z-Prefix-App.
 - [Installation]
 - [Usage]
 - [Removal]
+- [Conceptual Wireframe]
 
 
 
@@ -51,7 +52,6 @@ There is an admin profile built into the mocked back-end data. To log in as an i
 Run the following command to remove the docker image and container built for this program: **```docker-compose down --rmi all```**
 
 
-## Extraneous
 
 ## Conceptual Wire Frame
 
