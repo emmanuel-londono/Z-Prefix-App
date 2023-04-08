@@ -70,7 +70,7 @@ This is my submission for the SDI 15 Cohort Z-Prefix-App.
 
 8. Type and search ```http://localhost:3000/``` into the address at the top of the page. 
 
-	<sub> This will conclude the installation section.</sub>
+	<sub> This concludes installation guide.</sub>
 
 
 ## Usage
