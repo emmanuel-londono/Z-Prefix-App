@@ -95,7 +95,7 @@ Run the following command to remove the docker image and container built for thi
 ## Extraneous
 
 ### Conceptual Wire Frame
-<sub>Made with Google Slides.</sub>
+	Made with Google Slides.
 
 ![Z-Prefix App Login](https://user-images.githubusercontent.com/123216952/230739645-503182fd-3300-40e2-abb3-55bf8828e3bd.png)
 ![Z-Prefix App Signup](https://user-images.githubusercontent.com/123216952/230739652-a478ea7b-355f-4e16-8e28-225616fc9795.png)
