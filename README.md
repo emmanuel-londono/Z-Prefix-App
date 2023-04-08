@@ -59,13 +59,14 @@ This is my submission for the SDI 15 Cohort Z-Prefix-App.
 
 5. Perform the following command in said terminal:   **```docker-compose up```**
 
-<sub> This should install all dependencies, and perform all boot-up processes.</sub>
+	<sub> This should install all dependencies, and perform all boot-up processes.</sub>
 	
 6. Wait for the front-end to finish loading, this should be the last container to load before opening the app. 
 
 7. Open a window in a Google Chrome browser.
 
-8. Type and search ```http://localhost:3000/``` into the url. <sub> This should open the app.</sub>
+8. Type and search ```http://localhost:3000/``` into the url. 
+ 	<sub> This will open the app.</sub>
 
 
 ## Usage
