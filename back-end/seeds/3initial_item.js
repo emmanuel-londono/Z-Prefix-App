@@ -3,7 +3,7 @@ const { faker } = require('@faker-js/faker');
 let fakeItemList = [];
 
 const randomize = () => {
-  return Math.floor(Math.random() * 999)
+  return Math.floor(Math.random() * 1000) + 1
 }
 
 for (let i = 0; i < 1000; i++){
