@@ -18,7 +18,7 @@ This is my submission for the SDI 15 Cohort Z-Prefix-App.
 #### Technologies Used
 ##### Front-end 
 + Framework
-	+ React 18.2.0
+	+ React <sub> 18.2.0 </sub>
 + Routing
 	+ React Router 6.10.0
 + Styling
