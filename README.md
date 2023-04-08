@@ -38,5 +38,9 @@ There is an admin profile built into the mocked back-end data. To log in as an i
                123
 
 
+## Removal
+
+Run the following command to remove the docker image and container built for this program: docker-compose down --rmi all
+
 
 
