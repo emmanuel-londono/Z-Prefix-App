@@ -56,8 +56,9 @@ This is my submission for the SDI 15 Cohort Z-Prefix-App.
 3. Open the cloned repo in vscode.
 
 4. In the vscode terminal, perform the following command:   **```docker-compose up```**
-
-	<sub> This should install all the dependencies, and perform all boot-up processes</sub>
+	<sub> This should install all the dependencies, and perform all boot-up processes.</sub>
+	
+5. Wait for the front-end to finish loading. It should be the last container to load before opening the app. 
 
 
 ## Usage
