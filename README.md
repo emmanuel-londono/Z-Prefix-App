@@ -58,7 +58,7 @@ This is my submission for the SDI 15 Cohort Z-Prefix-App.
 4. In the vscode terminal, perform the following command:   **```docker-compose up```**
 	<sub> This should install all the dependencies, and perform all boot-up processes.</sub>
 	
-5. Wait for the front-end to finish loading. It should be the last container to load before opening the app. 
+5. Wait for the front-end to finish loading, this should be the last container to load before opening the app. 
 
 
 ## Usage
