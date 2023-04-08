@@ -27,7 +27,9 @@ This is my submission for the SDI 15 Cohort Z-Prefix-App.
 
 3. Open the cloned repo in vscode.
 
-4. In the vscode terminal, perform the following command:   docker-compose up
+4. In the vscode terminal, perform the following command:   **docker-compose up**
+
+
 (This should install all the dependencies, and perform all boot-up processes)
 
 
@@ -41,11 +43,11 @@ There is an admin profile built into the mocked back-end data. To log in as an i
       PASSWORD:
                123
 
-(It is also possible to sign-up for new login credentials) 
+(It is also possible to sign-up for new login credentials.) 
 
 ## Removal
 
-Run the following command to remove the docker image and container built for this program: docker-compose down --rmi all
+Run the following command to remove the docker image and container built for this program: **docker-compose down --rmi all**
 
 
 
