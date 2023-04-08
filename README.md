@@ -21,7 +21,7 @@ This is my submission for the SDI 15 Cohort Z-Prefix-App.
 ### Quick Start with Docker
 
 
-1. Clone this repository into your local machine with:       git clone git@github.com:emmanuel-londono/Z-Prefix-App.git
+1. Clone this repository into your local machine with:       _git clone git@github.com:emmanuel-londono/Z-Prefix-App.git_
 
 2. Navigate to cloned repo in your local machine.
 
