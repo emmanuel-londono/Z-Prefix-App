@@ -1,0 +1,41 @@
+version: '3'
+services:
+  front-end:
+    build: ./front-end
+    ports:
+      - 3000:3000
+    volumes:
+    - ./front-end:/front-end
+    networks:
+      - my_network
+    depends_on:
+      - back-end
+  back-end:
+    build: ./back-end
+    ports:
+      - 3001:3001
+    volumes:
+    - ./back-end:/back-end
+    networks:
+      - my_network
+    depends_on:
+      - db
+    environment:
+      DB_CONNECTION_STRING: postgres://postgres:password@db:5432/testDB
+  db:
+    image: postgres:latest
+    ports: 
+      - 5432:5432
+    expose:
+      - 5432
+    networks:
+      - my_network
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: inventory
+   
+
+networks:
+  my_network:
+    driver: bridge

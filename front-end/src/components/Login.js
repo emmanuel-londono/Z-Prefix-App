@@ -110,7 +110,7 @@ export const Login = () => {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(newUser)
-        }).then(res => res.json()).then(json => { console.log(json); setNewUser(json[0]); return setShow(true) })
+        }).then(res => res.json()).then(json => { console.log(json); setNewUser(json[0]); setShow(true); navigate('/')})
 
 
     }
@@ -134,7 +134,7 @@ export const Login = () => {
             console.log(json);
             Cookies.set('session_id', `${session_id}`, { expires: 1, path: '/login' })
             setLoggedIn(json.authenticated)
-            setAuthUser({username:json.username, password:json.password, first_name:json.first_name, last_name:json.last_name, session_id: json.session_id, id:json.user_id, authenticated: json.authenticated});
+            setAuthUser({ username: json.username, password: json.password, first_name: json.first_name, last_name: json.last_name, session_id: json.session_id, id: json.user_id, authenticated: json.authenticated });
             console.log(authUser)
             setLoggedIn(true);
             return navigate('/home')
@@ -163,35 +163,8 @@ export const Login = () => {
                             <Col className="logo-insert"><img id="login-logo" src='inventory box logo.png'></img></Col>
                             <Col className="login-form">
                                 <h3 className="Welcome-title">Sign-Up</h3>
-                                <FormControl variant="standard">
-                                    <InputLabel htmlFor="input-with-icon-adornment">
-                                        First Name
-                                    </InputLabel>
-                                    <Input
-                                        onChange={handleChange}
-                                        id="first_name"
-                                        startAdornment={
-                                            <InputAdornment position="start">
-                                                <BadgeOutlinedIcon />
-                                            </InputAdornment>
-                                        }
-                                    />
-                                </FormControl>
-                                <FormControl variant="standard">
-                                    <InputLabel htmlFor="input-with-icon-adornment">
-                                        Last Name
-                                    </InputLabel>
-                                    <Input
-                                        onChange={handleChange}
-                                        id="last_name"
-                                        startAdornment={
-                                            <InputAdornment position="start">
-                                                <BadgeOutlinedIcon />
-                                            </InputAdornment>
-                                        }
-                                    />
-                                </FormControl>
-                                <FormControl variant="standard">
+
+                                <FormControl id="f1" variant="standard">
                                     <InputLabel htmlFor="input-with-icon-adornment">
                                         Username
                                     </InputLabel>
@@ -205,7 +178,8 @@ export const Login = () => {
                                         }
                                     />
                                 </FormControl>
-                                <FormControl variant="standard">
+
+                                <FormControl id="f2" variant="standard">
                                     <InputLabel htmlFor="input-with-icon-adornment">
                                         Password
                                     </InputLabel>
@@ -219,6 +193,36 @@ export const Login = () => {
                                         }
                                     />
                                 </FormControl>
+                                <FormControl id="f3" variant="standard">
+                                    <InputLabel htmlFor="input-with-icon-adornment">
+                                        First Name
+                                    </InputLabel>
+                                    <Input
+                                        onChange={handleChange}
+                                        id="first_name"
+                                        startAdornment={
+                                            <InputAdornment position="start">
+                                                <BadgeOutlinedIcon />
+                                            </InputAdornment>
+                                        }
+                                    />
+                                </FormControl>
+                                <FormControl id="f4" variant="standard">
+                                    <InputLabel htmlFor="input-with-icon-adornment">
+                                        Last Name
+                                    </InputLabel>
+                                    <Input
+                                        onChange={handleChange}
+                                        id="last_name"
+                                        startAdornment={
+                                            <InputAdornment position="start">
+                                                <BadgeOutlinedIcon />
+                                            </InputAdornment>
+                                        }
+                                    />
+                                </FormControl>
+
+
                                 <Row>
                                     <Col style={{ textAlign: 'center' }}> <Button onClick={clickCreate} classname="create-pri" variant="danger">Create Account</Button></Col>
 
@@ -311,7 +315,7 @@ export const Login = () => {
                                     <Col style={{ textAlign: 'end', justifyContent: 'center', fontSize: '12px', fontStyle: 'italic' }} >
                                         <span style={{ marginRight: '15%' }}>Continue as Visitor?</span>
                                     </Col>
-                                    <Col onClick={() => { console.log(loginUser); return navigate('/home') }} style={{ textAlign: 'start', justifyContent: 'center', fontSize: '12px', fontWeight: 'bold', cursor: 'pointer' }} >
+                                    <Col onClick={() => { console.log(loginUser); return navigate('/visitorhome') }} style={{ textAlign: 'start', justifyContent: 'center', fontSize: '12px', fontWeight: 'bold', cursor: 'pointer' }} >
                                         <span style={{ marginLeft: '20%' }}>Click Here!</span>
                                     </Col>
                                 </Row>
@@ -328,24 +332,6 @@ export const Login = () => {
 
 
 
-
-                        </Col>
-                        <Col className="right-col-login">
-                            <Carousel fade>
-                                <Carousel.Item>
-                                    <img
-                                        className="d-block w-100"
-                                        src="holder.js/800x400?text=First slide&bg=373940"
-                                        alt="First slide"
-                                    />
-                                    <Carousel.Caption>
-                                        <h3>Third slide label</h3>
-                                        <p>
-                                            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                                        </p>
-                                    </Carousel.Caption>
-                                </Carousel.Item>
-                            </Carousel>
 
                         </Col>
 

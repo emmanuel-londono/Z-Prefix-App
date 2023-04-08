@@ -8,7 +8,7 @@ export const NotAuth = () => {
 return(
 <Col style={{textAlign:'center'}}>
 
-    <h1>401 Error Uauthorized!</h1>
+    <h1>401 Error / Unauthorized!</h1>
 
 </Col>
 )

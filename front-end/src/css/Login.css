@@ -16,7 +16,7 @@ div.central-Login.container-fluid {
 div.loginSquare.row {
 
     height: 65vh;
-    width: 70vw;
+    width: 35vw;
     border-radius: 105px;
     border-style: solid;
     border-color: rgb(255, 255, 255);
@@ -26,11 +26,7 @@ div.loginSquare.row {
 
 }
 
-div.left-col-login.col {
 
-    border-right-style: solid;
-    border-color: rgba(0, 0, 0, .5);
-}
 
 div.right-col-login.col {
     padding-left: 0px;

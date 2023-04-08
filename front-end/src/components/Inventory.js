@@ -20,7 +20,7 @@ export const Inventory = () => {
     const [show, setShow] = useState(false);
     const [editShow, setEditShow] = useState(false)
     const [deleteShow, setDeleteShow] = useState(false)
-    const [dataisLoaded, setDataIsLoaded] = useState(false)
+    const [deleteObject, setDeleteObject] = useState({})
     const [isPending, setIsPending] = useState(true)
 
 
@@ -40,6 +40,7 @@ export const Inventory = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const handleDeleteClose = () => setDeleteShow(false)
+    
 
 
     const clickItem = async (e) => {
@@ -79,8 +80,10 @@ export const Inventory = () => {
         setEditShow(false)
     }
 
-    const clickDelete = async () => {
-        setDeleteShow(true)
+    const clickDelete = async (e) => {
+        e.preventDefault();
+        setDeleteObject(activeItem)
+        setDeleteShow(true);
         console.log(activeItem.id)
         await fetch("http://localhost:3001/items", {
             method: "DELETE",
@@ -150,7 +153,7 @@ export const Inventory = () => {
                     <Table striped bordered hover>
                         <thead>
                             <tr>
-                                <th>Item Id</th>
+                                <th><Row><Col>Item Id</Col><Col></Col></Row></th>
                                 <th><Row><Col>User Id</Col><Col></Col></Row></th>
                                 <th><Row><Col>Name</Col><Col></Col></Row></th>
                                 <th><Row><Col>Quantity</Col><Col></Col></Row></th>
@@ -162,8 +165,8 @@ export const Inventory = () => {
 
                                     <tr id={`tablerow-${index}`} onClick={clickItem}>
                                         <td id={`tableelement-${index + 1}`} value={index} >{item.id}</td>
-                                        <td id={`tableelement-${index + 10000}`} value={index}>{item.item_name}</td>
                                         <td id={`tableelement-${index + 1000000}`} value={index}>{item.user_id}</td>
+                                        <td id={`tableelement-${index + 10000}`} value={index}>{item.item_name}</td>
                                         <td id={`tableelement-${index + 100000}`} value={index}>{item.quantity}</td>
                                     </tr>
                                 )
@@ -266,7 +269,7 @@ export const Inventory = () => {
             </Modal>
             <Modal show={deleteShow} onHide={handleDeleteClose}>
                 <Modal.Header>
-                    <Modal.Title>Deleted Item: {activeItem.item_name} <h3></h3></Modal.Title>
+                    <Modal.Title>Deleted Item: {deleteObject.item_name} <h3></h3></Modal.Title>
                 </Modal.Header>
             </Modal>
 

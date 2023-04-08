@@ -7,7 +7,7 @@ const randomize = () => {
 }
 
 for (let i = 0; i < 1000; i++){
-  fakeItemList.push({user_id:`${randomize()}`, item_name:faker.commerce.productName(), description:faker.commerce.productDescription(), quantity:faker.datatype.number({ max: 1000 })})
+  fakeItemList.push({user_id:randomize(), item_name:faker.commerce.productName(), description:faker.commerce.productDescription(), quantity:faker.datatype.number({ max: 100 })})
 }
 
 

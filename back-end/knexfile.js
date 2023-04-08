@@ -8,7 +8,12 @@ module.exports = {
   development: {
     client: 'pg',
     //Database is called inventory
-    connection: 'postgres://postgres:docker@localhost/inventory'
+    connection: {
+      host:'db',
+      user:'postgres',
+      password:'password',
+      database:'inventory'
+    }
   },
 
   staging: {

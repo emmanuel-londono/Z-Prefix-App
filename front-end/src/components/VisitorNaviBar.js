@@ -18,9 +18,9 @@ import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 
 
 
-export const NaviBar = () => {
+export const VisitorNaviBar = () => {
 
-const [back, setBack] = useState('Log Out')
+const [back, setBack] = useState('Log In?')
 const navigate = useNavigate();
 const {loggedIn, setLoggedIn} = useContext(ApplicationContext)
 
@@ -94,14 +94,11 @@ c-220 127 -449 260 -510 294 l-110 62 -510 -294z"/>
             </div>
 
             
-            <Nav.Item  onClick={()=> navigate('/home')}>
+            <Nav.Item  onClick={()=> navigate('/visitorhome')}>
                 <HomeIcon /><span> Home </span>
             </Nav.Item>
-            <Nav.Item onClick={()=> navigate('/users')}>
+            <Nav.Item onClick={()=> navigate('/visitorusers')}>
                 <SupervisedUserCircleIcon /> <span> Users </span>
-            </Nav.Item>
-            <Nav.Item onClick={()=> navigate('/account')}>
-                <ManageAccountsIcon /><span> Account </span>
             </Nav.Item>
             <Nav.Item onClick={clickLogOut}>
             <LogoutOutlinedIcon/><span>{back} </span>

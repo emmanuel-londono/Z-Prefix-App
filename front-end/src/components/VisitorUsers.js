@@ -1,4 +1,4 @@
-import { NaviBar } from "./NaviBar"
+import { VisitorNaviBar } from "./VisitorNaviBar"
 
 
 
@@ -14,7 +14,7 @@ import { Row, Col, Container, Table } from "react-bootstrap"
 
 import '../css/Home.css'
 
-export const Users = () => {
+export const VisitorUsers = () => {
 
     const [allUsers, setAllUsers] = useState([{ first_name: 'Emmanuel', last_name: 'Londono', username: "emmanuel.londono", id: '0' }])
 
@@ -32,7 +32,7 @@ export const Users = () => {
         <Container fluid className='central'>
             <Row>
                 <Col className='navCOL' xs={3}>
-                    <NaviBar />
+                    <VisitorNaviBar />
                 </Col>
 
 
@@ -110,6 +110,7 @@ export const Users = () => {
 
 
             </Row >
+            
         </Container >
 
 

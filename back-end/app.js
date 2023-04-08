@@ -324,7 +324,7 @@ const getSpecificItem = async (req, res) => {
             .then(data => {
                 if (!data.length) {
                     console.log('Returning 404')
-                    return res.status(404)
+                    return res.status(404).send('Value doesnt exist!')
                 } else {
                     console.log(`\n Get item of id: ${id} Success! \n`)
                     console.log(data)
@@ -342,7 +342,7 @@ const getSpecificItem = async (req, res) => {
             .then(data => {
                 if (!data.length) {
                     console.log('Returning 404')
-                    return res.status(404)
+                    return res.status(404).send('Value doesnt exist!')
                 } else {
                     console.log(`\n Get item(s) of user_id: ${user_id} Success! \n`)
                     console.log(data)
@@ -360,7 +360,7 @@ const getSpecificItem = async (req, res) => {
             .then(data => {
                 if (!data.length) {
                     console.log('Returning 404')
-                    return res.status(404)
+                    return res.status(404).send('Value doesnt exist!')
                 } else {
                     console.log(`\n Get item(s) of item_name: ${item_name} Success! \n`)
                     console.log(data)
@@ -378,7 +378,7 @@ const getSpecificItem = async (req, res) => {
             .then(data => {
                 if (!data.length) {
                     console.log('Returning 404')
-                    return res.status(404)
+                    return res.status(404).send('Value doesnt exist!')
                 } else {
                     console.log(`\n Get item(s) with quantity: ${quantity} Success! \n`)
                     console.log(data)

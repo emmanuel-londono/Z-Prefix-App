@@ -12,7 +12,7 @@ export const SearchBar = () => {
     const { activeItem, setActiveItem } = useContext(ApplicationContext);
     const { items, setItems } = useContext(ApplicationContext);
     const [query, setQuery] = useState({ id: "1" })
-    const[liquidId, setLiquidId] = useState('')
+    const [liquidId, setLiquidId] = useState('')
 
 
     const clickFilter = (e) => {
@@ -38,7 +38,7 @@ export const SearchBar = () => {
             setFilterPH('Search by User Id')
             setQuery({ user_id: 'all' })
             setLiquidId(e.target.id)
-        }else if (e.target.id === 'all') {
+        } else if (e.target.id === 'all') {
             setFormPlaceHolder('Press SEARCH for all items!')
             setFilterPH('Search for All Items')
             setQuery({ all: 'all' })
@@ -58,7 +58,12 @@ export const SearchBar = () => {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(query)
-        }).then(res => {console.log(res.status);return res.json(); }).then(json => { console.log(json); setActiveItem(json[json.length - 1]); return setItems(json) })
+        }).then(res => {
+            if (res.ok) {
+                return res.json()
+            } else { return alert('That value does not exist in the database. Please try a different value!') }
+        })
+            .then(json => { console.log(json); console.log(json); if(json.length === 0 ) setActiveItem(json[0]); else { setActiveItem(json[json.length - 1]); return setItems(json)} })
 
     }
 
@@ -70,17 +75,17 @@ export const SearchBar = () => {
     const handleChange = (e) => {
         e.preventDefault();
         console.log(e.target.value)
-        
+
         //Description Form
         if (e.target.attributes[0].nodeValue === 'item_name') {
             setQuery({ item_name: e.target.value })
         } else if (e.target.attributes[0].nodeValue === 'item_id') {
             setQuery({ id: e.target.value })
         } else if (e.target.attributes[0].nodeValue === 'quantity') {
-            setQuery({ quantity: e.target.value})
-        }else if (e.target.attributes[0].nodeValue === 'user_id') {
+            setQuery({ quantity: e.target.value })
+        } else if (e.target.attributes[0].nodeValue === 'user_id') {
             setQuery({ user_id: e.target.value })
-        }else if (e.target.attributes[0].nodeValue === 'all') {
+        } else if (e.target.attributes[0].nodeValue === 'all') {
             setQuery({ all: e.target.value })
         }
 
