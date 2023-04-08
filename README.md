@@ -24,7 +24,7 @@ This is my submission for the SDI 15 Cohort Z-Prefix-App.
 
 1. Clone this repository into your local machine with:       **```git clone git@github.com:emmanuel-londono/Z-Prefix-App.git```**
 
-2. Navigate to cloned repo in your local machine.
+2. Navigate to the cloned repo in your local machine.
 
 3. Open the cloned repo in vscode.
 
