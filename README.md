@@ -66,7 +66,8 @@ This is my submission for the SDI 15 Cohort Z-Prefix-App.
 7. Open a window in a Google Chrome browser.
 
 8. Type and search ```http://localhost:3000/``` into the url. 
- 	<sub> This will open the app.</sub>
+
+	<sub> This will conclude the installation section.</sub>
 
 
 ## Usage
