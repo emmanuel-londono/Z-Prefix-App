@@ -15,7 +15,7 @@
 
 This is my submission for the SDI 15 Cohort Z-Prefix-App.
 
-#### Front-end Tech Used
+#### Front-end 
 + Framework
 	+ React
 + Routing
@@ -25,13 +25,16 @@ This is my submission for the SDI 15 Cohort Z-Prefix-App.
 	+ React-MUI
 
 
-#### Back-end Tech Used
+#### Back-end 
 + Framework
 	+ Express
 + Database
 	+ PostgreSQL
 + Database/SQL Queries
 	+ Knex
+
+#### Container 
++ Docker
 
 
 ## Installation
