@@ -21,13 +21,13 @@ This is my submission for the SDI 15 Cohort Z-Prefix-App.
 ### Quick Start with Docker
 
 
-1. Clone this repository into your local machine with:       ```**git clone git@github.com:emmanuel-londono/Z-Prefix-App.git**```
+1. Clone this repository into your local machine with:       **```git clone git@github.com:emmanuel-londono/Z-Prefix-App.git```**
 
 2. Navigate to cloned repo in your local machine.
 
 3. Open the cloned repo in vscode.
 
-4. In the vscode terminal, perform the following command:   **docker-compose up**
+4. In the vscode terminal, perform the following command:   **```docker-compose up```**
 
 	<sub> This should install all the dependencies, and perform all boot-up processes</sub>
 
