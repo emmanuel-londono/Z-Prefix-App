@@ -48,7 +48,7 @@ This is my submission for the SDI 15 Cohort Z-Prefix-App.
 
 ### Quick Start with Docker
 
-<sub> This installation guide assumes the user has the latest version of Docker desktop installed locally.</sub>
+<sub> This installation guide assumes the user has the latest version of Docker desktop installed locally. Installation guid can be found [here](https://docs.docker.com/engine/install/). </sub>
 
 
 1. Clone this repository into your local machine with:       **```git clone git@github.com:emmanuel-londono/Z-Prefix-App.git```**
