@@ -43,7 +43,7 @@ This is my submission for the SDI 15 Cohort Z-Prefix-App.
 ##### Containerization
 + Docker Desktop  20.10.24
 
-<sub> Please review the package.json in ./back-end & ./front-end for a more detailed list of dependencies. </sub>
+<sub> Please review the package.json in ./back-end & ./front-end folders for a more detailed list of technology dependencies. </sub>
 
 ## Installation
 
