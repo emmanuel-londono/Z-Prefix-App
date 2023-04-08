@@ -8,9 +8,12 @@
 This is my submission for the SDI 15 Cohort Z-Prefix-App.
 
 #### Front-end Tech Used
-+ React
-+ React-Bootstrap
-+ React-MUI
++ Framework
+	+ React
++ Styling
+	+ React-Bootstrap
+	+ React-MUI
+
 
 #### Back-end Tech Used
 + Express
