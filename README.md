@@ -22,6 +22,8 @@ This is my submission for the SDI 15 Cohort Z-Prefix-App.
 	+ React
 + Routing
 	+ React Router
++ Cookies
+	+js-cookie
 + Styling
 	+ React-Bootstrap
 	+ React-MUI
@@ -30,6 +32,8 @@ This is my submission for the SDI 15 Cohort Z-Prefix-App.
 ##### Back-end 
 + Framework
 	+ Express
++ Session Management
+	+ express-session
 + Database
 	+ PostgreSQL
 + Database/SQL Queries
