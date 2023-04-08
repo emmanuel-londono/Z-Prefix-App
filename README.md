@@ -18,30 +18,30 @@ This is my submission for the SDI 15 Cohort Z-Prefix-App.
 #### Technologies Used
 ##### Front-end 
 + Framework
-	+ React <sub> 18.2.0 </sub>
+	+ React <sub>18.2.0</sub>
 + Routing
-	+ React Router 6.10.0
+	+ React Router <sub>6.10.0</sub>
 + Styling
-	+ React-Bootstrap 2.7.2
-	+ MUI Material 5.11.16
+	+ React-Bootstrap <sub>2.7.2</sub>
+	+ MUI Material <sub>5.11.16</sub>
 + Cookie Management
-	+ js-cookie 3.0.1
+	+ js-cookie <sub>3.0.1</sub>
 
 
 ##### Back-end 
 + Framework
-	+ Express 4.18.2
+	+ Express <sub>4.18.2</sub>
 + Database
-	+ PostgreSQL 8.10.0
+	+ PostgreSQL <sub>8.10.0</sub>
 + Database/SQL Queries
-	+ Knex 2.4.2
+	+ Knex <sub>2.4.2</sub>
 + Data Mock
-	+ FakerJS 7.6.0
+	+ FakerJS <sub>7.6.0</sub>
 + Session Management
-	+ express-session 1.17.3
+	+ express-session <sub>1.17.3</sub>
 
 ##### Containerization
-+ Docker Desktop  20.10.24
++ Docker Desktop  <sub>20.10.24</sub>
 
 <sub> Please review the package.json in ./back-end & ./front-end folders for a more detailed list of technology dependencies. </sub>
 
