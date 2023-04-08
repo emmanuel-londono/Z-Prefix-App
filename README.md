@@ -15,7 +15,7 @@
 
 This is my submission for the SDI 15 Cohort Z-Prefix-App.
 
-#### Tech Used
+#### Technologies Used
 
 ##### Front-end 
 + Framework
