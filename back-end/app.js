@@ -41,9 +41,18 @@ app.post('/login', async function (req, res) {
 app.put('/signup', async function (req, res) {
     putSignUp(req, res);
 })
+//Get all accounts
+app.get('/account', async function (req, res) {
+    getAllAccounts(req, res);
+})
+
+app.post('/account', async function (req, res) {
+    getSpecificAccount(req, res);
+})
 
 //Modify an existing Account
 app.patch('/account', async function (req, res) {
+
     patchAccount(req, res);
 })
 
@@ -79,11 +88,13 @@ app.put('/items', async function (req, res) {
 
 //Modify an existing Item
 app.patch('/items', async function (req, res) {
+    console.log(req.body)
     patchItem(req, res);
 })
 
 //Delete an existing Item by id
 app.delete('/items', async function (req, res) {
+    console.log(req.body)
     deleteItem(req, res);
 })
 
@@ -125,20 +136,45 @@ const postCredentials = async (req, res) => {
         if (passwordMatcher === undefined || usernameMatcher === undefined)
         //User Auth Failed
         {
-            return res.status(403).send('Username or Password not found')
+            console.log("Returning 404"); return res.status(404).send('Wrong Credentials')
         } else
         //User Auth Success
         {
             console.log('\n User Authenticated Successfully! \n')
+            let sid = req.sessionID
             req.session.authenticated = true;
-            req.session.user = { username }
             req.session.cookie.path = '/login'
-            return res.json(req.session)
+            req.session.session_id = sid
+
+            return knex("user")
+                .where("username", username)
+                .modify((queryBuilder) => queryBuilder.update({ session_id: sid })).then(() => {
+                    console.log(sid)
+                    console.log(req.session)
+                }).then(data => {
+                    return knex
+                        .select('*')
+                        .from('user')
+                        .where({ username: username, password: passwordMatcher }).then(data => {
+
+                            req.session.user_id = data[0].id
+                            req.session.username = data[0].username
+                            req.session.password = data[0].password
+                            req.session.first_name = data[0].first_name
+                            req.session.last_name = data[0].last_name
+                            return res.json(req.session)
+
+                        })
+                })
+
+
+
+
         }
     } else
     //Inputed Username or Password Invalid Not truthy; Auth Failed
     {
-        return res.status(403).json({ "msg": "Username or Password is not valid!" });
+        return res.status(404).send('Wrong Credentials')
     }
 }
 
@@ -146,75 +182,108 @@ const postCredentials = async (req, res) => {
 //Create Account and add to database with PUT
 const putSignUp = async (req, res) => {
     console.log(req.body)
-    if (req.body.firstname, req.body.lastname, req.body.username, req.body.password, req.body.createKey) {
-        if (req.body.createKey === adminKey) {
-            let { firstname, lastname, username, password, createKey } = req.body;
-            return knex("user")
-                .insert({
-                    first_name: firstname,
-                    last_name: lastname,
-                    username: username,
-                    password: password,
-                })
-                .then(() => {
-                    return res.status(202).json({ "msg": `Added ${firstname} ${lastname} to the Inventory Box database!` })
-                })
-        } else { return res.status(202).json({ "msg": "The create key is incorrect! It should be: 1234 !" }) }
-    } else {
-        return res.status(403).json({ "msg": "Input fields are invalid! Make sure no fields are left empty!" });
-    }
+
+    let { first_name, last_name, username, password } = req.body;
+    return knex("user")
+        .insert({
+            first_name: first_name,
+            last_name: last_name,
+            username: username,
+            password: password,
+        })
+        .then((data) =>
+            knex.select('*')
+                .from('user')
+                .where({ username: username, password: password, first_name: first_name, last_name: last_name, })
+
+        ).then(data => { console.log(data); return res.status(202).json(data) })
+
 }
+
+
+
+//Get all Accounts
+const getAllAccounts = async (req, res) => {
+    return knex
+        .select('id', "first_name", "last_name", "username")
+        .from('user')
+        .then(data => {
+            console.log('\n Get Users Success! \n')
+            console.log(data)
+            if (!data.length) {
+                return res.status(404).json({ "msg": "Those users don't exist!" })
+            }
+            res
+                .status(200)
+                .json(data)
+        })
+}
+
+
+
+//Get Specific Account
+
+const getSpecificAccount = async (req, res) => {
+    console.log(req.body)
+
+    let { user_id, username } = req.body
+    return knex
+        .select('user_id', 'username', 'password', 'first_name', 'last_name')
+        .where({ username: username, password: password, first_name, last_name })
+        .from('user')
+        .then(data => {
+            if (!data.length) {
+                console.log('Returning 404')
+                return res.status(404)
+            } else {
+                console.log(`\n Get User Success! \n`)
+                console.log(data)
+                res
+                    .status(200)
+                    .json(data)
+            }
+        })
+
+}
+
+
+
+
 
 
 
 //Modify Existing Account
 const patchAccount = async (req, res) => {
-    if (req.body.first_name && req.body.new_first_name) {
-        let { first_name, new_first_name } = req.body;
+    if (req.body.first_name && req.body.new_first_name && req.body.last_name && req.body.new_last_name && req.body.username && req.body.new_username && req.body.password && req.body.new_password) {
+        let { first_name, new_first_name, last_name, new_last_name, username, new_username, password, new_password } = req.body;
         return knex("user")
-            .where("first_name", first_name)
-            .modify((queryBuilder) => queryBuilder.update({ first_name: new_first_name })).then(() => { console.log(`New first name = ${new_first_name}`); return res.status(202).json({ "msg": `New first name = ${new_first_name}` }) })
+            .where({ first_name: first_name, last_name: last_name, username: username, password: password })
+            .modify((queryBuilder) => queryBuilder.update({ first_name: new_first_name, last_name: new_last_name, username: new_username, password: new_password }))
+            .then((data) => {
+                return knex("user")
+                    .where({ first_name: new_first_name, last_name: new_last_name, username: new_username, password: new_password })
+            }).then (data => { return res.status(200).json(data)})
+    }else{
+        return res.status(404).send('Wrong Input Detected. Make sure to enter a value into each text form!')
     }
 
-    else if (req.body.last_name && req.body.new_last_name) {
-        let { last_name, new_last_name } = req.body;
-        return knex("user")
-            .where("last_name", last_name)
-            .modify((queryBuilder) => queryBuilder.update({ last_name: new_last_name })).then(() => { console.log(`New last name = ${new_last_name}`); return res.status(202).json({ "msg": `New last name = ${new_last_name}` }) })
-    }
-
-    else if (req.body.username && req.body.new_username) {
-        let { username, new_username } = req.body;
-        return knex("user")
-            .where("username", username)
-            .modify((queryBuilder) => queryBuilder.update({ username: new_username })).then(() => { console.log(`New username = ${new_username}`); return res.status(202).json({ "msg": `New username = ${new_username}` }) })
-    }
-
-    else if (req.body.username && req.body.new_password) {
-        let { username, new_password } = req.body;
-        return knex("user")
-            .where("username", username)
-            .modify((queryBuilder) => queryBuilder.update({ password: new_password })).then(() => { console.log(`New password accepted! ${new_password}`); return res.status(202).json({ "msg": `New password accepted!` }) })
-    } else {
-        return res.status(404).json({ "msg": "Input not acceptable!" })
-    }
 }
 
 
 
 //Delete Existing Account with correct username from database
 const deleteAccount = async (req, res) => {
-    if (req.body.username && req.body.delete === "true") {
-        let { username } = req.body;
+    if (req.body.id) {
+        let { id } = req.body;
         knex("user")
-            .where("username", username)
+            .where("id", id)
             .del()
             .then(() => {
-                console.log(`Deleted user with username = ${username}`);
-                return res.status(201).json({ "msg": "Delete request successful!" });
+                console.log(`Deleted user with id = ${id}`);
+                return res.status(200).send('User Deleted!');
             })
     } else {
-        return res.status(404).json({ "msg": "Input not acceptable!" })
+        return res.status(404).send('Delete unsuccessful, wrong user_id')
     }
 
 }
@@ -240,116 +309,121 @@ const getItems = async (req, res) => {
         })
 }
 
+
+
+
 //Search for specific item in database 
 const getSpecificItem = async (req, res) => {
+    console.log(req.body)
     if (req.body.id) {
         let { id } = req.body
-        knex
+        return knex
             .select('*')
             .where({ id: id })
             .from('item')
             .then(data => {
                 if (!data.length) {
-                    return res.status(404).json({ "msg": "That item does not exist!" })
+                    console.log('Returning 404')
+                    return res.status(404)
+                } else {
+                    console.log(`\n Get item of id: ${id} Success! \n`)
+                    console.log(data)
+                    res
+                        .status(200)
+                        .json(data)
                 }
-                console.log(`\n Get item of id: ${id} Success! \n`)
-                console.log(data)
-                res
-                    .status(200)
-                    .json(data)
             })
     } else if (req.body.user_id) {
         let { user_id } = req.body
-        knex
+        return knex
             .select('*')
             .where({ user_id: user_id })
             .from('item')
             .then(data => {
                 if (!data.length) {
-                    return res.status(404).json({ "msg": "That item does not exist!" })
+                    console.log('Returning 404')
+                    return res.status(404)
+                } else {
+                    console.log(`\n Get item(s) of user_id: ${user_id} Success! \n`)
+                    console.log(data)
+                    res
+                        .status(200)
+                        .json(data)
                 }
-                console.log(`\n Get item(s) of user_id: ${user_id} Success! \n`)
-                console.log(data)
-                res
-                    .status(200)
-                    .json(data)
             })
     } else if (req.body.item_name) {
         let { item_name } = req.body
-        knex
+        return knex
             .select('*')
             .where({ item_name: item_name })
             .from('item')
             .then(data => {
                 if (!data.length) {
-                    return res.status(404).json({ "msg": "That item does not exist!" })
+                    console.log('Returning 404')
+                    return res.status(404)
+                } else {
+                    console.log(`\n Get item(s) of item_name: ${item_name} Success! \n`)
+                    console.log(data)
+                    res
+                        .status(200)
+                        .json(data)
                 }
-                console.log(`\n Get item with item_name: ${item_name} Success! \n`)
-                console.log(data)
-                res
-                    .status(200)
-                    .json(data)
-            })
-    } else if (req.body.description) {
-        let { description } = req.body
-        knex
-            .select('*')
-            .where({ description: description })
-            .from('item')
-            .then(data => {
-                if (!data.length) {
-                    return res.status(404).json({ "msg": "That item does not exist!" })
-                }
-                console.log(`\n Get item(s) with description: ${description} Success! \n`)
-                console.log(data)
-                res
-                    .status(200)
-                    .json(data)
             })
     } else if (req.body.quantity) {
         let { quantity } = req.body
-        knex
+        return knex
             .select('*')
             .where({ quantity: quantity })
             .from('item')
             .then(data => {
                 if (!data.length) {
-                    return res.status(404).json({ "msg": "That item does not exist!" })
+                    console.log('Returning 404')
+                    return res.status(404)
+                } else {
+                    console.log(`\n Get item(s) with quantity: ${quantity} Success! \n`)
+                    console.log(data)
+                    res
+                        .status(200)
+                        .json(data)
                 }
-                console.log(`\n Get item(s) with quantity: ${quantity} Success! \n`)
-                console.log(data)
-                res
-                    .status(200)
-                    .json(data)
             })
-    } else
-    //Search Input Invalid
-    {
-        return res.status(404).json({ "msg": "Input not found in database!" })
+    } else if (req.body.all) {
+        return knex
+            .select('*')
+            .from('item')
+            .then(data => {
+                if (!data.length) {
+                    console.log('Returning 404')
+                    return res.status(404).send('Error')
+                } else {
+                    console.log(`\n Get all items : Success! \n`)
+                    console.log(data)
+                    res
+                        .status(200)
+                        .json(data)
+                }
+            })
     }
-
 }
 
 
 //Create new item and add to database
 const putNewItem = async (req, res) => {
 
-    if (req.body.user_id, req.body.item_name, req.body.description, req.body.quantity) {
-        let { user_id, item_name, description, quantity } = req.body;
-        return knex("item")
-            .insert({
-                user_id: user_id,
-                item_name: item_name,
-                description: description,
-                quantity: quantity
-            })
-            .then(() => {
-                console.log(`\n Added to database: ${item_name} |  Success! \n`);
-                return res.status(202).json({ "msg": `Added new item: ${item_name} to the Inventory Box database!` })
-            })
-    } else {
-        return res.status(403).json({ "msg": "Input fields are invalid! Make sure no fields are left empty!" });
-    }
+
+    let { user_id, item_name, description, quantity } = req.body;
+    return knex("item")
+        .insert({
+            user_id: user_id,
+            item_name: item_name,
+            description: description,
+            quantity: quantity
+        })
+        .then(() => {
+            console.log(`\n Added to database: ${item_name} |  Success! \n`);
+            return knex.select('*')
+                .from('item')
+        }).then(data => res.status(202).json(data))
 
 }
 
@@ -358,50 +432,31 @@ const putNewItem = async (req, res) => {
 //Modify an existing item 
 const patchItem = async (req, res) => {
 
-    if (req.body.item_name && req.body.new_item_name) {
-        let { item_name, new_item_name } = req.body;
-        return knex("item")
-            .where("item_name", item_name)
-            .modify((queryBuilder) => queryBuilder.update({ item_name: new_item_name })).then(() => { console.log(`New item_name = ${new_item_name}`); return res.status(202).json({ "msg": `New item_name = ${new_item_name}` }) })
-    }
-
-    else if (req.body.description && req.body.new_description) {
-        let { description, new_description } = req.body;
-        return knex("item")
-            .where("description", description)
-            .modify((queryBuilder) => queryBuilder.update({ description: description })).then(() => { console.log(`New description = ${new_description}`); return res.status(202).json({ "msg": `New description = ${new_description}` }) })
-    }
-
-
-    else if (req.body.quantity && req.body.new_quantity) {
-        let { quantity, new_quantity } = req.body;
-        return knex("item")
-            .where("quantity", quantity)
-            .modify((queryBuilder) => queryBuilder.update({ quantity: new_quantity })).then(() => { console.log(`New quantity = ${new_quantity}`); return res.status(202).json({ "msg": `New quantity = ${new_quantity}` }) })
-    }
-
-
-    else {
-        return res.status(404).json({ "msg": "Input not acceptable!" })
-    }
+    console.log(req.body.item_name)
+    let { item_name, new_item_name, description, new_description, quantity, new_quantity, user_id, new_user_id } = req.body;
+    return knex("item")
+        .where({
+            item_name: item_name,
+            description: description,
+            user_id: user_id,
+            quantity: quantity,
+        })
+        .modify((queryBuilder) => queryBuilder.update({ user_id: new_user_id, item_name: new_item_name, description: new_description, quantity: new_quantity }))
+        .then(() => knex.select('*')
+            .from('item')).then(data => res.status(202).json(data))
 }
+
 
 
 //Delete Existing Item
 const deleteItem = async (req, res) => {
-    if (req.body.id && req.body.delete === "true") {
-        let { id } = req.body;
-        knex("item")
-            .where("id", id)
-            .del()
-            .then(() => {
-                console.log(`Deleted item with id = ${id}`);
-                return res.status(201).json({ "msg": "Delete item request successful!" });
-            })
-    } else {
-        return res.status(404).json({ "msg": "Input not acceptable!" })
-    }
-
+    console.log(req.body)
+    let { id } = req.body;
+    return knex("item")
+        .where("id", id)
+        .del()
+        .then(() => knex.select('*')
+            .from('item')).then(data => res.status(202).json(data))
 }
 
 

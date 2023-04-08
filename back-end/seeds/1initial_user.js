@@ -7,8 +7,8 @@ const { faker } = require('@faker-js/faker');
 
 let fakeUserList = [];
 
-for (let i = 0; i < 10; i++){
-  fakeUserList.push({first_name:faker.name.firstName(),last_name:faker.name.lastName(), username:faker.internet.userName(), password:'123'})
+for (let i = 0; i <= 1000; i++){
+  fakeUserList.push({first_name:faker.name.firstName(),last_name:faker.name.lastName(), username:faker.internet.userName(), password:'123', session_id:faker.datatype.uuid()})
 }
 
 exports.seed = function(knex) {

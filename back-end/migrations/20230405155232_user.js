@@ -10,6 +10,7 @@ exports.up = function(knex) {
         table.string('last_name');
         table.string('username');
         table.string('password');
+        table.string('session_id');
       });
 };
 

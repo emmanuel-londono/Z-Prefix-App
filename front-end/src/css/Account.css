@@ -1,0 +1,146 @@
+div.title-row.row {
+    margin: auto;
+    padding: 0;
+    text-align: center;
+}
+
+
+div.title {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+    border-bottom-style: solid;
+    border-color: rgba(0, 0, 0, .1);
+    text-align: center;
+
+}
+
+
+
+
+
+
+
+div.account-container.row {
+
+    margin-top: 200px;
+    height: auto;
+    width: 70vw;
+    border-radius: 25px;
+    margin-left: 25px;
+    margin-bottom: 25px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 3px 6px rgba(0, 0, 0, .1);
+    transition: all .2s ease;
+
+
+}
+
+
+
+div.left-acc.col-2 {
+
+    height: 600px;
+    width: 150px;
+    border-radius: 5px;
+    border-right-style: solid;
+    border-color: rgba(0, 0, 0, .1);
+    text-align: center;
+    transition: all .7s ease;
+
+}
+
+div.right-acc.col {
+
+    height: 600px;
+    width: 150px;
+    border-radius: 5px;
+
+
+}
+h5{
+    margin-top: 25px;
+}
+
+table.table.table-striped {
+    border-style: solid;
+    border-color: transparent;
+    transition: all .7s ease;
+    border-radius: 10px;
+    display: block;
+    max-height: 500px;
+    overflow-y: scroll;
+    cursor:pointer
+}
+
+
+
+
+
+
+
+
+
+
+
+
+input.descriptionForm.form-control {
+    box-shadow: 0 0 6px 5px rgba(0, 0, 0, .1);
+    border-radius: 4px;
+    height: 75px;
+
+}
+
+input:hover {
+
+    background-color: #fff;
+    box-shadow:
+        0 0 60px 30px #fff,
+        0 0 100px 1px #666463;
+
+
+}
+
+div.acc-nav.nav-item{
+    background-color:   #a75600;
+    color: rgb(255, 255, 255);
+    transition: all .9s ease;
+    box-shadow: 0 0 6px 5px rgba(0, 0, 0, .1);
+    border-radius: 10px;
+    cursor:pointer;
+    
+
+
+
+}
+
+
+div.acc-nav-delete.nav-item{
+    background-color:  #a70300;
+    color: rgb(255, 255, 255);
+    transition: all .7s ease;
+    box-shadow: 0 0 6px 5px rgba(0, 0, 0, .1);
+    border-radius: 10px;
+    font-size: 15px;
+    
+    
+
+
+
+}
+
+div.acc-nav-goBack.nav-item{
+    background-color:  #0097a7ff;
+    color: rgb(255, 255, 255);
+    transition: all .7s ease;
+    box-shadow: 0 0 6px 5px rgba(0, 0, 0, .1);
+    border-radius: 10px;
+    font-size: 15px;
+    
+    
+
+
+
+}
+
+

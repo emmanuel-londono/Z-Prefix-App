@@ -1,0 +1,155 @@
+div.central-Login.container-fluid {
+
+    background-image: url('../../public/pixels.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100vh;
+    width: 100vw;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.loginSquare.row {
+
+    height: 65vh;
+    width: 70vw;
+    border-radius: 105px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+    transition: all .2s ease;
+    box-shadow: 0 0 10px 50px rgba(0, 0, 0, .1);
+
+}
+
+div.left-col-login.col {
+
+    border-right-style: solid;
+    border-color: rgba(0, 0, 0, .5);
+}
+
+div.right-col-login.col {
+    padding-left: 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+div.carousel.slide.carousel-fade {
+    height: 60vh;
+    width: 30vw;
+
+    border-radius: 25px;
+    margin-left: 15px;
+    margin-top: 25px;
+}
+
+span.carousel-control-next-icon {
+    border-color: black;
+}
+
+div.logo-insert.col {
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+img#login-logo {
+    width: 125px;
+}
+
+div.login-form.col {
+
+
+    height: 45vh;
+    width: 30vw;
+    margin-left: 30px;
+    text-align: center;
+
+
+}
+
+h3.Welcome-title {
+
+    margin-top: 50px;
+}
+
+div.MuiFormControl-root.css-1nrlq1o-MuiFormControl-root {
+    margin-top: 25px;
+    width: 350px;
+}
+
+button.btn.btn-secondary {
+    margin-top: 35px;
+
+    width: 8vw;
+    height: 40px;
+    border: 2px;
+    border-style: solid;
+    border-color: rgba(126, 123, 123, 0.5);
+    background-color: #0097a7ff;
+    margin-left: 35%;
+
+}
+
+button.btn.btn-caution {
+    margin-top: 35px;
+    margin-right: 35%;
+    border: 2px;
+    width: 8vw;
+    height: 40px;
+    border-style: solid;
+    border-color: rgba(126, 123, 123, 0.5);
+    background-color: rgb(255, 255, 255);
+
+}
+
+
+
+button.btn.btn-danger {
+    margin-top: 35px;
+    width: 17vw;
+    height: 40px;
+    border: 2px;
+    border-style: solid;
+    border-color: rgba(126, 123, 123, 0.5);
+    box-shadow: 0 0 6px 5px rgba(0, 0, 0, .1);
+    background-color: #0097a7ff;
+
+}
+
+
+
+
+button.btn.btn-danger:hover {
+    background-color: #eef0f2;
+    color: rgb(0, 0, 0);
+    transition: all .2s ease;
+    box-shadow: 0 0 6px 5px rgba(0, 0, 0, .2);
+    border-radius: 10px;
+
+
+
+}
+
+button.btn.btn-secondary:hover {
+    background-color: #eef0f2;
+    color: rgb(0, 0, 0);
+    transition: all .2s ease;
+    box-shadow: 0 0 6px 5px rgba(0, 0, 0, .1);
+    border-radius: 10px;
+
+}
+
+button.btn.btn-caution:hover {
+    background-color: #0097a7ff;
+    color: rgb(255, 255, 255);
+    transition: all .2s ease;
+    box-shadow: 0 0 6px 5px rgba(0, 0, 0, .1);
+    border-radius: 10px;
+
+
+
+}

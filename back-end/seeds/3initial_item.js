@@ -3,11 +3,11 @@ const { faker } = require('@faker-js/faker');
 let fakeItemList = [];
 
 const randomize = () => {
-  return Math.floor(Math.random() * 10)
+  return Math.floor(Math.random() * 1000)
 }
 
-for (let i = 0; i < 10; i++){
-  fakeItemList.push({user_id:randomize(), item_name:faker.commerce.productName(), description:faker.commerce.productDescription(), quantity:faker.datatype.number({ max: 100 })})
+for (let i = 0; i < 1000; i++){
+  fakeItemList.push({user_id:`${randomize()}`, item_name:faker.commerce.productName(), description:faker.commerce.productDescription(), quantity:faker.datatype.number({ max: 1000 })})
 }
 
 
