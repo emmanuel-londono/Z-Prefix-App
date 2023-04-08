@@ -1,6 +1,14 @@
 # Z-Prefix-App
 
 
+## Table of Contents
+
+- [Description]
+- [Installation]
+- [Usage]
+- [Removal]
+- [Extraneous]
+
 
 
 ## Description
@@ -24,17 +32,6 @@ This is my submission for the SDI 15 Cohort Z-Prefix-App.
 	+ PostgreSQL
 + Database/SQL Queries
 	+ Knex
-
-
-
-
-## Table of Contents
-
-- [Installation]
-- [Usage]
-- [Removal]
-- [Extraneous]
-
 
 
 ## Installation
