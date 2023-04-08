@@ -30,7 +30,7 @@ This is my submission for the SDI 15 Cohort Z-Prefix-App.
 4. In the vscode terminal, perform the following command:   **docker-compose up**
 
 
-(This should install all the dependencies, and perform all boot-up processes)
+^This should install all the dependencies, and perform all boot-up processes^
 
 
 ## Usage
@@ -43,7 +43,7 @@ There is an admin profile built into the mocked back-end data. To log in as an i
       PASSWORD:
                123
 
-(It is also possible to sign-up for new login credentials.) 
+^It is also possible to sign-up for new login credentials.^
 
 ## Removal
 
