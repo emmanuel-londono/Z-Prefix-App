@@ -55,7 +55,7 @@ Run the following command to remove the docker image and container built for thi
 
 ## Conceptual Wire Frame
 
-![Login Screen](assets/images/Z-Prefix App Home Screen.jpg)
+![Login Screen](wireframe/Z-Prefix App Home.png)
 
 
 
